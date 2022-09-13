@@ -5,4 +5,5 @@
     <string name="k_rpergewicht">Körpergewicht</string>
     <string name="weightInKg">Körpergewicht in kg</string>
     <string name="berechnen">Berechnen!</string>
+    <string name="errorText">Fill in all values please!</string>
 </resources>

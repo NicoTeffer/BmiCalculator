@@ -7,6 +7,8 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.MessageFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -25,17 +27,24 @@ public class MainActivity extends AppCompatActivity {
         EditText result = this.findViewById(R.id.editTextResultDecimal);
 
         // create onClickListener for calculate Button Method
-        calculateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        calculateButton.setOnClickListener(v -> {
+            // Initialization string.length of weight & height from EditText fields
+            int weightLength = weightText.getText().length();
+            int heightLength = heightText.getText().length();
+
+            // Crash prevention through asserting string.length > 0
+            if (weightLength < 1 || heightLength < 1) {
+                result.setText(R.string.errorText);
+            } else {
                 // BMI = Weight : (Height)²
                 double weightParsed = Double.parseDouble(weightText.getText().toString());
                 double heightParsed = Double.parseDouble(heightText.getText().toString());
                 double bmiResult = weightParsed / (heightParsed * heightParsed / 100) * 100;
                 int finalResult = (int) Math.ceil(bmiResult);
-                result.setText("Your calculated BMI: " + finalResult);
-                result.setVisibility(View.VISIBLE);
+                result.setText(MessageFormat.format("Your calculated BMI: {0}", finalResult));
             }
+            // sets invisibility of field result to visible
+            result.setVisibility(View.VISIBLE);
         });
     }
 }
