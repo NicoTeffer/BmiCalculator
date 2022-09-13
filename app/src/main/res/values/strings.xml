@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BMI Calculator</string>
+    <string name="k_rpergr_e">Körpergröße</string>
+    <string name="heightInCm">Körpergröße in cm</string>
+    <string name="k_rpergewicht">Körpergewicht</string>
+    <string name="weightInKg">Körpergewicht in kg</string>
+    <string name="berechnen">Berechnen!</string>
+</resources>
